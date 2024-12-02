@@ -1,9 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { UserController } from "../controllers/user";
+import { prisma } from "../database";
 import { generateRandomPassword, parseUserForResponse, Errors } from "../helper";
 
 const router = Router();
-const userController = new UserController();
+const userController = new UserController(prisma);
 
 // CreateUser
 router.post('/new', async (req: Request, res: Response) => {

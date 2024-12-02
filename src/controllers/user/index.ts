@@ -4,8 +4,8 @@ import { UserSchema } from "./schema";
 export class UserController {
     private prisma: PrismaClient;
 
-    constructor(prisma?: PrismaClient) {
-        this.prisma = prisma || new PrismaClient();
+    constructor(prisma: PrismaClient) {
+        this.prisma = prisma;
     }
 
     async createUser(userData: UserSchema.Create): Promise<User> {

@@ -1,0 +1,151 @@
+{
+  "data": {
+    "posts": [
+      {
+        "id": 1,
+        "memberId": 1,
+        "postType": "Text",
+        "title": "First post!",
+        "content": "This is bob vances first post",
+        "dateCreated": "2023-11-25T03:53:58.786Z",
+        "votes": [
+          {
+            "id": 1,
+            "postId": 1,
+            "memberId": 1,
+            "voteType": "Upvote"
+          }
+        ],
+        "memberPostedBy": {
+          "id": 1,
+          "userId": 1,
+          "user": {
+            "id": 1,
+            "email": "bobvance@gmail.com",
+            "firstName": "Bob",
+            "lastName": "Vance",
+            "username": "bobvance",
+            "password": "123"
+          }
+        },
+        "comments": [
+          {
+            "id": 1,
+            "postId": 1,
+            "text": "I posted this!",
+            "memberId": 1,
+            "parentCommentId": null
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "memberId": 1,
+        "postType": "Text",
+        "title": "Second post!",
+        "content": "This is bobs second post",
+        "dateCreated": "2023-11-25T03:53:58.786Z",
+        "votes": [
+          {
+            "id": 2,
+            "postId": 2,
+            "memberId": 1,
+            "voteType": "Upvote"
+          },
+          {
+            "id": 6,
+            "postId": 2,
+            "memberId": 3,
+            "voteType": "Downvote"
+          }
+        ],
+        "memberPostedBy": {
+          "id": 1,
+          "userId": 1,
+          "user": {
+            "id": 1,
+            "email": "bobvance@gmail.com",
+            "firstName": "Bob",
+            "lastName": "Vance",
+            "username": "bobvance",
+            "password": "123"
+          }
+        },
+        "comments": [
+          {
+            "id": 2,
+            "postId": 2,
+            "text": "Nice",
+            "memberId": 2,
+            "parentCommentId": null
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "memberId": 2,
+        "postType": "Text",
+        "title": "another post",
+        "content": "This is tonys first post",
+        "dateCreated": "2023-11-25T03:53:58.786Z",
+        "votes": [
+          {
+            "id": 3,
+            "postId": 3,
+            "memberId": 2,
+            "voteType": "Upvote"
+          },
+          {
+            "id": 5,
+            "postId": 3,
+            "memberId": 1,
+            "voteType": "Upvote"
+          }
+        ],
+        "memberPostedBy": {
+          "id": 2,
+          "userId": 2,
+          "user": {
+            "id": 2,
+            "email": "tonysoprano@gmail.com",
+            "firstName": "Tony",
+            "lastName": "Soprano",
+            "username": "tonysoprano",
+            "password": "123"
+          }
+        },
+        "comments": []
+      },
+      {
+        "id": 4,
+        "memberId": 2,
+        "postType": "<https://khalilstemmler.com>",
+        "title": "Links",
+        "content": "This is a link post",
+        "dateCreated": "2023-11-25T03:53:58.786Z",
+        "votes": [
+          {
+            "id": 4,
+            "postId": 4,
+            "memberId": 2,
+            "voteType": "Upvote"
+          }
+        ],
+        "memberPostedBy": {
+          "id": 2,
+          "userId": 2,
+          "user": {
+            "id": 2,
+            "email": "tonysoprano@gmail.com",
+            "firstName": "Tony",
+            "lastName": "Soprano",
+            "username": "tonysoprano",
+            "password": "123"
+          }
+        },
+        "comments": []
+      }
+    ]
+  },
+  "success": true
+}

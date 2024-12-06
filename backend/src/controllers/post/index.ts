@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-// import { UserSchema } from "./schema";
+import { PostWithVotes } from "./schema";
 
 export class PostController {
   private prisma: PrismaClient;
@@ -8,7 +8,7 @@ export class PostController {
     this.prisma = prisma;
   }
 
-  async getPostsWithVotes() {
+  async getPostsWithVotes(): Promise<PostWithVotes[]> {
     try {
       return await this.prisma.post.findMany({
         include: {

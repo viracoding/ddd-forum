@@ -48,7 +48,7 @@ export const RegistrationPage = () => {
         }
 
         try {
-            api.register(userInput).then((response) => {
+            await api.register(userInput).then((response) => {
                 setUser(response.data)
                 setIsLoading(false)
                 toast({

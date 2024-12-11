@@ -1,0 +1,67 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  username  String  @unique
+  firstName String
+  lastName  String
+  password  String
+  // one-to-one relationship with Member
+  member    Member?
+}
+
+model Member {
+  id       Int       @id @default(autoincrement())
+  // reputation      String
+  user     User      @relation(fields: [userId], references: [id])
+  userId   Int       @unique
+  posts    Post[]
+  comments Comment[]
+  votes    Vote[]
+}
+
+model Post {
+  id             Int       @id @default(autoincrement())
+  memberPostedBy Member    @relation(fields: [memberId], references: [id])
+  memberId       Int
+  title          String
+  postType       String
+  content        String
+  // text           String
+  // link           String
+  comments       Comment[]
+  votes          Vote[]
+  dateCreated    DateTime  @default(now())
+}
+
+model Comment {
+  id              Int       @id @default(autoincrement())
+  post            Post      @relation(fields: [postId], references: [id])
+  postId          Int
+  memberPostedBy  Member    @relation(fields: [memberId], references: [id])
+  memberId        Int
+  text            String
+  parentCommentId Int?
+  parentComment   Comment?  @relation("Replies", fields: [parentCommentId], references: [id])
+  replyComments   Comment[] @relation("Replies")
+}
+
+model Vote {
+  id Int @id @default(autoincrement())
+
+  postId        Int // Foreign key to the Post table
+  postBelongsTo Post @relation(fields: [postId], references: [id])
+
+  memberId       Int // Foreign key to the Member table
+  memberPostedBy Member @relation(fields: [memberId], references: [id])
+
+  voteType String // 'Upvote' or 'Downvote'
+}
